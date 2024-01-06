@@ -1,0 +1,10 @@
+.login_form_wrapper {
+  height: calc(100vh - 60px);
+  @apply flex justify-center w-full pt-20
+}
+
+.login_form_container {
+  width: 570px;
+  height: 230px;
+  @apply bg-main-dark text-main-white
+}

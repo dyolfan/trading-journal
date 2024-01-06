@@ -1,0 +1,24 @@
+.input_container {
+  height: 30px;
+  @apply grid gap-4 grid-cols-8
+}
+
+.input_label {
+  @apply col-span-2
+}
+
+.input_field {
+  @apply col-span-4 text-main-dark rounded pl-1 pr-1
+}
+
+.input_field:focus {
+  outline: none;
+}
+
+.form_loader_wrapper {
+
+}
+
+.form_container {
+  @apply mt-4
+}

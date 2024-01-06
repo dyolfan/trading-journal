@@ -1,0 +1,21 @@
+.account_bar_container {
+  height: 60px;
+  font-size: 16px;
+  @apply bg-main-dark text-main-white w-full grid grid-cols-12 gap-4
+}
+
+.currency_container {
+  @apply col-span-4 pl-10 flex items-center
+}
+
+.logo_container {
+  @apply col-span-4 flex items-center justify-center
+}
+
+.logo {
+  height: 60px;
+}
+
+.account_info_container {
+  @apply col-span-4  items-center grid grid-cols-6 pl-10 gap-4
+}

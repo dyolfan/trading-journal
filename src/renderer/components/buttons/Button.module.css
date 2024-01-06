@@ -1,0 +1,22 @@
+.button {
+  height: 30px;
+  font-size: 18px;
+}
+
+.button_normal {
+  border: 1px solid;
+  @apply bg-main-white text-main-dark rounded border-main-white
+}
+
+.button_inline {
+  border: 1px solid;
+  @apply text-main-white bg-transparent border-main-white pl-4 pr-4 rounded
+}
+
+.button_normal:disabled {
+  @apply bg-main border-main
+}
+
+.button_inline:disabled {
+  @apply bg-main border-main text-main-dark
+}
