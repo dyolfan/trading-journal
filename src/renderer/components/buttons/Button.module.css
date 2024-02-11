@@ -1,6 +1,10 @@
 .button {
-  height: 30px;
-  font-size: 18px;
+  height: 26px;
+  font-size: 16px;
+}
+
+.button:focus {
+  outline: none;
 }
 
 .button_normal {

@@ -31,7 +31,7 @@ const SimpleMessage: React.FC<SimpleMessageProps> = ({ type, text }) => {
   return (
     <div className="flex w-fit mt-4">
       <img src={messageIcon} alt="green tick" className={s.message_icon} />
-      <div className="pl-4 font-bold">{text}</div>
+      <div className="pl-4 font-bold text-main-white">{text}</div>
     </div>
   );
 };

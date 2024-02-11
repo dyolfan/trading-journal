@@ -1,14 +1,23 @@
 .input_container {
   height: 30px;
-  @apply grid gap-4 grid-cols-8
+  @apply grid gap-4 grid-cols-8 mt-2
 }
 
 .input_label {
-  @apply col-span-2
+  @apply col-span-2 text-main-white
+}
+
+.input_field, .dropdown_input {
+  @apply col-span-4 text-main-dark rounded pl-1 pr-1
 }
 
 .input_field {
-  @apply col-span-4 text-main-dark rounded pl-1 pr-1
+  padding-left: 6px;
+}
+
+.dropdown_input {
+  height: 30px;
+  @apply block rounded p-0
 }
 
 .input_field:focus {

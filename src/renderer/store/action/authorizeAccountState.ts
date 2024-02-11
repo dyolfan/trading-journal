@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {
-  fetchAccountByName,
+  callGetAccountByName,
   FetchAccountByNamePayload,
 } from '../../client/accountClient';
 
@@ -50,7 +50,7 @@ export const loadAccountByName = createAsyncThunk(
   'account/authorize',
   async (payload: FetchAccountByNamePayload, api) => {
     api.dispatch(authorizeAccountSlice.actions.authorizeAccountStarted());
-    fetchAccountByName(payload)
+    callGetAccountByName(payload)
       .then(({ account }) => {
         api.dispatch(
           authorizeAccountSlice.actions.authorizeAccountSuccess(account.id),

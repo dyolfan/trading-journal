@@ -1,34 +1,35 @@
 import { Account } from '../types/model/api';
 import client from './client';
 
-export const registerAccount = async (payload: Account) => {
-  const { data, status } = await client.post<Account>('/accounts/add', {
-    ...payload,
+export type RegisterAccountPayload = {
+  account: Account;
+};
+
+export const callRegisterAccount = async (payload: RegisterAccountPayload) => {
+  const { data, status } = await client.post<Account>(
+    '/accounts/add',
+    payload.account,
+  );
+
+  return new Promise<{ data: Account; status: number }>((resolve) => {
+    resolve({ data, status });
   });
-  return { data, status };
 };
 
 export type FetchAccountByNamePayload = {
   accountName: string;
 };
 
-export const fetchAccountByName = async (
+export const callGetAccountByName = async (
   payload: FetchAccountByNamePayload,
 ) => {
   const { data, status } = await client.get<Account>('/accounts/name/id', {
     params: { ...payload },
   });
-  return { account: { ...data }, status };
+
+  return new Promise<{ account: Account; status: number }>((resolve) => {
+    resolve({ account: { ...data }, status });
+  });
 };
 
-// export const fetchAccountById = async (payload: LoadAccountByIdPayload) => {
-//   const { data, status } = await client.get<Account>(
-//     `/accounts/${payload.accountId}`,
-//     {
-//       params: { ...payload },
-//     },
-//   );
-//   return { account: { ...data }, status };
-// };
-
-export default { fetchAccountByName, registerAccount };
+export default { callGetAccountByName, callRegisterAccount };

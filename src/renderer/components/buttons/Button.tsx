@@ -32,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       type={type === 'submit' ? 'submit' : 'button'}
-      className={classNames('button', buttonClass)}
+      className={classNames(s.button, buttonClass)}
       style={{ width }}
       disabled={disabled}
       onClick={(e) => {
