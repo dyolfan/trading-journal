@@ -13,7 +13,10 @@ export const parseDropdownOptionToEnum = <T>(
   option: DropdownSelectValue<T>,
   dropdownEnum: object,
 ) => {
-  return dropdownEnum[option.value as keyof typeof dropdownEnum];
+  if (option && option.value) {
+    return dropdownEnum[option.value as keyof typeof dropdownEnum];
+  }
+  return undefined;
 };
 
 export default { getDropdownOptionsFromEnum };

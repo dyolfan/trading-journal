@@ -3,6 +3,11 @@ import {
   callGetAccountByName,
   FetchAccountByNamePayload,
 } from '../../client/accountClient';
+import {
+  addToStorage,
+  resetFromStorage,
+  Storages,
+} from '../../persistence/storages';
 
 export type AuthorizeAccountState = {
   isLoading: boolean;
@@ -42,11 +47,13 @@ export const authorizeAccountSlice = createSlice({
       state.isLoaded = initialState.isLoaded;
       state.isFailed = initialState.isFailed;
       state.accountId = initialState.accountId;
+
+      resetFromStorage(Storages.ACCOUNT_ID);
     },
   },
 });
 
-export const loadAccountByName = createAsyncThunk(
+export const authorizeAccountByName = createAsyncThunk(
   'account/authorize',
   async (payload: FetchAccountByNamePayload, api) => {
     api.dispatch(authorizeAccountSlice.actions.authorizeAccountStarted());
@@ -55,8 +62,10 @@ export const loadAccountByName = createAsyncThunk(
         api.dispatch(
           authorizeAccountSlice.actions.authorizeAccountSuccess(account.id),
         );
-        // eslint-disable-next-line promise/no-return-wrap
-        return Promise.resolve();
+        addToStorage(Storages.ACCOUNT_ID, account.id || '');
+        return new Promise((resolve) => {
+          resolve(null);
+        });
       })
       .catch(() =>
         api.dispatch(authorizeAccountSlice.actions.authorizeAccountFailed()),

@@ -1,11 +1,12 @@
 import AccountBar from '../components/bars/AccountBar';
 import LoginForm from '../components/form/LoginForm';
+import PageWrapper from './PageWrapper';
 
 const HomePage = () => (
-  <div>
+  <PageWrapper>
     <AccountBar />
     <LoginForm />
-  </div>
+  </PageWrapper>
 );
 
 export default HomePage;

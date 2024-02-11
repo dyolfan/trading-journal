@@ -32,4 +32,18 @@ export const callGetAccountByName = async (
   });
 };
 
+export type GetAccountByIdPayload = {
+  accountId: string;
+};
+
+export const callGetAccountById = async (payload: GetAccountByIdPayload) => {
+  const { data, status } = await client.get<Account>(
+    `/accounts/${payload.accountId}`,
+  );
+
+  return new Promise<{ account: Account; status: number }>((resolve) => {
+    resolve({ account: { ...data }, status });
+  });
+};
+
 export default { callGetAccountByName, callRegisterAccount };

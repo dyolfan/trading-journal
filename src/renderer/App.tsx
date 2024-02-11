@@ -2,16 +2,16 @@ import React from 'react';
 import './App.css';
 import s from './App.module.css';
 import 'tailwindcss/tailwind.css';
-import Providers from './provider/Providers';
+import BaseProviders from './provider/BaseProviders';
 import Router from './Router';
 
 const App = () => {
   return (
     <React.StrictMode>
       <div className={s.body}>
-        <Providers>
+        <BaseProviders>
           <Router />
-        </Providers>
+        </BaseProviders>
       </div>
     </React.StrictMode>
   );

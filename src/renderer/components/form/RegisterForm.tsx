@@ -6,7 +6,6 @@ import Button, { ButtonStyleType } from '../buttons/Button';
 import Form from '../input/Form';
 import TextInput from '../input/TextInput';
 import s from './RegisterForm.module.css';
-import routes from '../../routes';
 import DropdownSelect from '../input/DropDownSelect';
 import { AccountCurrency } from '../../types/model/api';
 import { AppDispatch, StoreState } from '../../store/store';
@@ -18,6 +17,7 @@ import {
   getDropdownOptionsFromEnum,
   parseDropdownOptionToEnum,
 } from '../../utils/dropDownUtils';
+import routes from '../../routes';
 
 type RegisterFormValues = {
   accountName: string;
@@ -42,7 +42,7 @@ const RegisterForm = () => {
           currency: parseDropdownOptionToEnum<AccountCurrency>(
             values.currency,
             AccountCurrency,
-          ),
+          )!,
           strategies: [],
           trades: [],
         },
@@ -56,7 +56,7 @@ const RegisterForm = () => {
 
   return (
     <div className="flex justify-center">
-      <div className={s.page_container}>
+      <div className={s.form_container}>
         <div className="text-center text-main-white text-xl">Register</div>
         <Form<RegisterFormValues> onSubmit={onSubmit}>
           {() => (
@@ -77,7 +77,10 @@ const RegisterForm = () => {
                     disabled={registerAccountState.isLoading}
                   />
                 </div>
-                <div className="col-span-1 flex justify-center">
+              </div>
+              <div className="w-full grid grid-cols-4 mt-10 gap-4">
+                <div className="text-main-white">Already have an account?</div>
+                <div className="col-start-2 col-span-1 flex justify-center">
                   <Button
                     text="Login"
                     styleType={ButtonStyleType.INLINE}

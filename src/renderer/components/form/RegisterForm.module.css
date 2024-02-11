@@ -1,5 +1,5 @@
-.page_container {
-  width: 570px;
-  height: 250px;
-  @apply bg-main-dark mt-20 flex flex-col items-center p-4 pt-2
+.form_container {
+  width: 600px;
+  min-height: 350px;
+  @apply bg-main-dark mt-20 flex flex-col items-center p-12 pt-2
 }

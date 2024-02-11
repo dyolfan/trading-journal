@@ -7,7 +7,7 @@ import Form, { FormPropsOnSubmit } from '../input/Form';
 import Button, { ButtonStyleType } from '../buttons/Button';
 import SimpleMessage, { MessageType } from '../message/SimpleMessage';
 import routes from '../../routes';
-import { loadAccountByName } from '../../store/action/authorizeAccountState';
+import { authorizeAccountByName } from '../../store/action/authorizeAccountState';
 import { AppDispatch, StoreState } from '../../store/store';
 
 type LoginFormValues = {
@@ -22,7 +22,7 @@ const LoginForm = () => {
   );
 
   const onSubmit: FormPropsOnSubmit<LoginFormValues> = async (values) =>
-    dispatch(loadAccountByName({ accountName: values.accountName }));
+    dispatch(authorizeAccountByName({ accountName: values.accountName }));
 
   useEffect(() => {
     if (authAccountState.isLoaded) {

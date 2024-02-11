@@ -5,16 +5,19 @@ import authorizeAccountActions, {
 import registerAccountActions, {
   RegisterAccountState,
 } from './action/registerAccount';
+import loadAccountActions, { LoadAccountState } from './action/loadAccount';
 
 export type StoreState = {
   authorizeAccount: AuthorizeAccountState;
   registerAccount: RegisterAccountState;
+  loadAccount: LoadAccountState;
 };
 
 const store = configureStore({
   reducer: {
     authorizeAccount: authorizeAccountActions,
     registerAccount: registerAccountActions,
+    loadAccount: loadAccountActions,
   },
 });
 

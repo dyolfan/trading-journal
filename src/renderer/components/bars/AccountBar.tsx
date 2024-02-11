@@ -6,26 +6,27 @@ import Button, { ButtonStyleType } from '../buttons/Button';
 import routes from '../../routes';
 import { AppDispatch, StoreState } from '../../store/store';
 import { authorizeAccountSlice } from '../../store/action/authorizeAccountState';
+import { loadAccountSlice } from '../../store/action/loadAccount';
 
 const AccountBar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const authAccountState = useSelector(
-    (state: StoreState) => state.authorizeAccount,
+  const loadAccountState = useSelector(
+    (state: StoreState) => state.loadAccount,
   );
 
   return (
     <div className={s.account_bar_container}>
       <div className={s.currency_container}>
-        {authAccountState.isLoaded && 'USD'}
+        {loadAccountState.isLoaded && loadAccountState.account?.currency}
       </div>
       <div className={s.logo_container}>
         <img src={Logo} alt="logo" className={s.logo} />
       </div>
       <div className={s.account_info_container}>
-        {authAccountState.isLoaded && (
+        {loadAccountState.isLoaded && (
           <>
-            <div className="col-span-2">Big account name</div>
+            <div className="col-span-2">{loadAccountState.account?.name}</div>
             <div className="col-span-3 flex justify-end">
               <Button
                 text="Change account"
@@ -35,6 +36,7 @@ const AccountBar = () => {
                   dispatch(
                     authorizeAccountSlice.actions.authorizeAccountClear(),
                   );
+                  dispatch(loadAccountSlice.actions.loadAccountClear());
                   navigate(routes.HOME);
                 }}
               />
