@@ -3,6 +3,11 @@
   font-size: 16px;
 }
 
+.button_s {
+  height: 20px;
+  font-size: 12px;
+}
+
 .button:focus {
   outline: none;
 }
@@ -15,6 +20,10 @@
 .button_inline {
   border: 1px solid;
   @apply text-main-white bg-transparent border-main-white pl-4 pr-4 rounded
+}
+
+.button_inline:hover {
+  @apply bg-main
 }
 
 .button_normal:disabled {

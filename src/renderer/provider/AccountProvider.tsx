@@ -25,7 +25,7 @@ const AccountProvider: FunctionComponent<AccountPrivderProps> = ({
   );
   const navigate = useNavigate();
   const authorizedAccountId = getFromStorage(Storages.ACCOUNT_ID);
-  const [showLoader, setShowLoader] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
     if (authorizedAccountId) {
@@ -58,21 +58,21 @@ const AccountProvider: FunctionComponent<AccountPrivderProps> = ({
     return () => clearTimeout(timer);
   }, [loadAccountState.isLoading]);
 
-  if (showLoader || loadAccountState.isLoading) {
-    return (
-      <div
-        style={{ height: '100vh' }}
-        className="flex flex-col justify-center items-center"
-      >
-        <div style={{ marginLeft: '-30px' }}>
-          <PropagateLoader color="#212121" size={30} />
-        </div>
-        <div className="mt-20 text-main-dark text-3xl">Logging in</div>
-      </div>
-    );
+  if (!showLoader) {
+    return children;
   }
 
-  return children;
+  return (
+    <div
+      style={{ height: '100vh' }}
+      className="flex flex-col justify-center items-center"
+    >
+      <div style={{ marginLeft: '-30px' }}>
+        <PropagateLoader color="#212121" size={30} />
+      </div>
+      <div className="mt-20 text-main-dark text-3xl">Logging in</div>
+    </div>
+  );
 };
 
 export default AccountProvider;

@@ -1,0 +1,7 @@
+.tab {
+  @apply text-main-white text-base text-center flex items-center justify-center border-main-dark border-r-2
+}
+
+.tab:hover {
+  @apply bg-main
+}
