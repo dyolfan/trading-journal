@@ -11,8 +11,28 @@
   @apply col-span-4 text-main-dark rounded pl-1 pr-1
 }
 
+.input_field_full_width {
+  @apply col-span-8
+}
+
 .input_field {
   padding-left: 6px;
+}
+
+.input_field:disabled {
+  @apply bg-main-darker text-main-dark
+}
+
+.input_grey {
+  @apply bg-main-darker text-main-white
+}
+
+.input_field::placeholder {
+  @apply text-main-white
+}
+
+.input_field::placeholder:disabled {
+  @apply text-main-dark
 }
 
 .dropdown_input {
@@ -22,10 +42,6 @@
 
 .input_field:focus {
   outline: none;
-}
-
-.form_loader_wrapper {
-
 }
 
 .form_container {

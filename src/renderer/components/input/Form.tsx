@@ -47,7 +47,7 @@ const MyForm = <T,>({
   );
 };
 export const FormLoader: React.FunctionComponent = () => (
-  <div className={s.form_loader_wrapper}>
+  <div>
     <div>
       <PropagateLoader color="white" />
     </div>

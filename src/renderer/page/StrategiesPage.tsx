@@ -24,10 +24,10 @@ const StrategiesPage: FunctionComponent<StrategiesPageProps> = () => {
             buttonSize={ButtonSize.S}
           />
         </ButtonsBar>
-        <div className="grid grid-cols-7 h-full">
+        <div className="grid grid-cols-12 h-full">
           <StrategiesSidebar />
-          <div className="p-5 col-span-6 h-full grid">
-            <div className="bg-main-light text-center">Content</div>
+          <div className="p-5 pl-24 pr-24 col-span-10 h-full grid">
+            <div className="bg-main-white text-center">Content</div>
           </div>
         </div>
       </div>
