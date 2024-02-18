@@ -5,6 +5,6 @@
  * OpenAPI spec version: v0
  */
 
-export type ExecuteSearchTradeGetParams = {
-  accountId?: string;
+export type GetAccountIdByNameParams = {
+  accountName: string;
 };
